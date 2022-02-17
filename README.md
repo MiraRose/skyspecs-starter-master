@@ -1,3 +1,17 @@
+# Notes from Miranda
+
+## The Below Starting Instructions Still Apply
+
+## To Call Api from Postman (or the like)
+### To get gists for user
+localhost:3010/users/{username}
+
+### To get gist by id
+localhost:3010/gists/c4e3724a7041c4673470c34ec3b7771c
+
+## Time taken
+2 hours and odd minutes. The odd minutes were to finish up the feature I was working, clean-up, and adding to this readme.
+
 # SkySpecs Code Sample - Starter Repo
 
 Welcome to the SkySpecs Code Sample starter repo! 
