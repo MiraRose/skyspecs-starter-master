@@ -1,10 +1,13 @@
 import express from "express";
 import cors from "cors";
+import axios from 'axios'
+
 const PORT = 3010;
 
-import { getGistByID, getGistsForUser } from './gistaccess/GistApiLibrary.mjs';
+import { getGistByID, getGistsForUser, retrieveGistsForUser } from './gistaccess/GistApiLibrary.mjs';
 
 const app = express();
+const router = express.Router()
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -12,8 +15,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users/:userName", (req, res) => {
-  let gists = getGistsForUser(req.params.userName)
-  res.send(gists);
+  getGistsForUser(req, res)
+});
+
+app.get("/users/:gistID", (req, res) => {
+  getGistsForUser(req, res)
 });
 
 app.listen(PORT, () => {
