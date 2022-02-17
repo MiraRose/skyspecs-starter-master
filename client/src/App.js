@@ -22,7 +22,7 @@ const App = () => {
   function renderGists() {
     return (
       <div>
-        {gists.map(gist => <div key={gist.id}></div>)}
+        {gists.map(gist => <div key={gist.id}><p>Description: {gist.description}</p><p>Created at: {gist.created_at}</p></div>)}
       </div>
     )
   }
@@ -41,25 +41,15 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Welcome to the SkySpecs Software Engineer Coding Challenge</p>
-        <a
-          className="App-link"
-          href="https://drive.google.com/file/d/1vIrNPICCYwGIkfKBKEzn6uW5BWfnhLEr/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instructions
-        </a>
         <p>Your Server is {connected ? "" : "not "}running</p>
-      </header>
-
-      <div>
+        <div>
+          <h1>To Retrieve Gists from Github use box below</h1>
         <label>Github Username to get Gists for: </label>
         <input type="text" onChange={ (event) => setUserName(event.target.value) } value={userName}></input>
         <button onClick={() => handleOnClick()}>Get Gists</button>
       </div>
       <div>{renderGists()}</div>
+      </header>
     </div>
   );
 };
